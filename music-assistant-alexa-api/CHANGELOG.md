@@ -10,7 +10,7 @@ Bugfix environment variable
 
 ## 1.0.1
 
-Refactor docker / repo dependancies
+Refactor docker / repo dependencies
 
 ## 1.0.0
 
