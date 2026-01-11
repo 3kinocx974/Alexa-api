@@ -45,6 +45,38 @@
         "panel": "new"
       },
       "problemMatcher": []
+    },
+    {
+      "label": "Build Container",
+      "type": "shell",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "command": [
+        "docker",
+        "run",
+        "--log-driver=none",
+        "--rm",
+        "-it",
+        "--name",
+        "builder",
+        "--privileged",
+        "-v",
+        "./music-assistant-alexa-api:/data",
+        "-v",
+        "/var/run/docker.sock:/var/run/docker.sock:ro",
+        "ghcr.io/home-assistant/${input:builderArch}-builder",
+        "-t",
+        "/data",
+        "--amd64",
+        "--aarch64",
+        "--test",
+        "-i",
+        "{arch}-addon-ma-alexa-api",
+        "-d",
+        "local"
+      ]
     }
   ],
   "inputs": [
@@ -54,6 +86,15 @@
       "description": "Name of addon (to add your addon to this list, please edit .vscode/tasks.json)",
       "options": [
         "ma_alexa_api",
+      ]
+    },
+    {
+      "id": "builderArch",
+      "type": "pickString",
+      "description": "Architecture for builder (to add your architecture to this list, please edit .vscode/tasks.json)",
+      "options": [
+        "amd64",
+        "aarch64"
       ]
     }
   ]

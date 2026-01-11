@@ -1,0 +1,43 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Remote Attach",
+            "type": "debugpy",
+            "request": "attach",
+            "connect": {
+                "host": "localhost",
+                "port": 5678
+            },
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}/app/lambda/py",
+                    "remoteRoot": "/app/src"
+                }
+            ]
+        },
+        {
+            "name": "Python: Flask Debug",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/music-assistant-alexa-api/skill-api/app/lambda/py/app.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/music-assistant-alexa-api/skill-api/app/lambda/py",
+            "env": {
+                "FLASK_APP": "app.py",
+                "FLASK_ENV": "development",
+                "FLASK_DEBUG": "1",
+                "PORT": "5001",
+                "MA_HOSTNAME": "https://ha.laingcorp.co.uk",
+                "API_USERNAME": "ma-local-alexa-api",
+                "API_PASSWORD": "5lgbICHkrwiWQqSVtJyZ8JeuvIOoUap5"
+            },
+            "args": [],
+            "jinja": true,
+            "autoReload": {
+                "enable": true
+            },
+            "redirectOutput": true
+        },
+    ]
+}
