@@ -1,7 +1,7 @@
 name: Music Assistant Alexa API
 version: "1.0.5"
 slug: ma_alexa_api
-description: Music Assistant Alexa API add-on
+description: Music Assistant Alexa API
 url: "https://github.com/3kinocx974/Alexa-api/tree/main/music-assistant-alexa-api"
 arch:
   - aarch64
