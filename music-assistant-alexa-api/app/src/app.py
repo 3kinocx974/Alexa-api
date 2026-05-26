@@ -40,8 +40,8 @@ def alexa_intents_root():
     }
     ha_service = service_map.get(command)
     if ha_service and player_id:
-        token = get_env_secret("HA_TOKEN") or os.environ.get("SUPERVISOR_TOKEN", "")
-        url = "http://172.30.32.1:8123/api/services/" + ha_service
+        token = os.environ.get("HASSIO_TOKEN") or os.environ.get("SUPERVISOR_TOKEN", "")
+        url = "http://supervisor/core/api/services/" + ha_service
         headers = {
             "Authorization": "Bearer " + token,
             "Content-Type": "application/json",
