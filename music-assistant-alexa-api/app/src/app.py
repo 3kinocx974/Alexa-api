@@ -25,7 +25,7 @@ def invoke_skill():
     return skill_adapter.dispatch_request()
 
 
-@app.route("/alexa/intents", methods=["POST"])
+@app.route("/alexa/intents", methods=["GET", "POST", "PUT", "PATCH"])
 def alexa_intents_root():
     data = request.get_json(silent=True) or {}
     print("ALEXA_INTENTS received:", data, flush=True)
